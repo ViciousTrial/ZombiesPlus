@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven { url "https://files.minecraftforge.net/maven/" }
+        maven {
+			name = 'Fabric'
+			url = 'https://maven.fabricmc.net/'
+		}
+        //maven { url = 'https://maven.parchmentmc.org' } // Add this line
+        maven { url "https://maven.architectury.dev/" }
+      
+        //maven { url "https://maven.shedaniel.me/" }
+        //maven { url "https://maven.terraformersmc.com/releases/" }
+    }
+}
+
+/* plugins {
+    //id 'org.gradle.toolchains.foojay-resolver-convention' version '0.5.0'
+} */
+
+include("common", "fabric", "forge")
+rootProject.name = "${mod_name}"

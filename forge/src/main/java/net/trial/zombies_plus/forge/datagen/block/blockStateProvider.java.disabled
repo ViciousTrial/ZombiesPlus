@@ -1,0 +1,29 @@
+package net.trial.template_mod.datagen.block;
+
+import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
+
+public class blockStateProvider extends BlockStateProvider  {
+    public blockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+        super(output, Misgiving.MOD_ID, exFileHelper);
+    }
+
+    @Override
+    protected void registerStatesAndModels() {
+        blockWithItem(modBlocks.UNKNOWN_MATTER);
+        blockWithItem(modBlocks.UNKNOWN_MATTER_BLACK);
+        blockWithItem(modBlocks.UNKNOWN_MATTER_RED);
+        blockWithItem(modBlocks.UNKNOWN_MATTER_BRIGHT_RED);
+        
+        simpleBlockWithItem(modBlocks.CAVITY.get(), 
+            new ModelFile.UncheckedModelFile(modLoc("block/cavity")));
+    }
+
+    private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+}

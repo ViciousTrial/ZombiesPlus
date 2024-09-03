@@ -1,0 +1,57 @@
+package net.trial.frenzied_horde.forge.util;
+
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.common.Mod;
+import net.trial.frenzied_horde.modMainCommon;
+
+@Mod.EventBusSubscriber(modid = modMainCommon.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class modConfig {
+
+    public static final ForgeConfigSpec COMMON_CONFIG;
+    private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
+
+    public static ForgeConfigSpec.BooleanValue ZOMBIE_TEXTURE_OVERRIDE;
+    public static ForgeConfigSpec.BooleanValue TISSOU_ZOMBIE_PACK_DETAILS;
+    public static ForgeConfigSpec.BooleanValue USE_BETTER_ANIMATIONS;
+    public static ForgeConfigSpec.IntValue SHRIEKER_ZOMBIE_RANGE;
+    public static ForgeConfigSpec.BooleanValue SPAWN_ZOMBIES_DURING_DAY;
+
+    static {
+        COMMON_BUILDER.comment("Frenzied Horde Settings").push(modMainCommon.MOD_ID);
+
+        COMMON_BUILDER.comment("################################################");
+
+        ZOMBIE_TEXTURE_OVERRIDE = COMMON_BUILDER
+                .comment("Use another resource pack for zombie textures?")
+                .comment("NOTE: Does not work for Brutes.")
+                .define("zombie_texture_override", false);
+
+        COMMON_BUILDER.comment("################################################");
+
+
+        TISSOU_ZOMBIE_PACK_DETAILS = COMMON_BUILDER
+                .comment("Add details for Tissou Zombie Resource Pack?")
+                .comment("NOTE: Adds realistic zombie textures for Brutes only. Install the mod 'Entity Texture Features' for emissive eye textures.")
+                .comment("For Runners and Crawlers, install Tissou's pack and set 'zombie_texture_override' to true.")
+                .define("tissou_zombie_pack_details", false);
+
+        COMMON_BUILDER.comment("################################################");
+
+        USE_BETTER_ANIMATIONS = COMMON_BUILDER
+                .comment("Use better animations for zombies?")
+                .comment("Animations similar to Fresh Animations.")
+                .comment("NOTE: Applies to Brutes and Crawlers only. Crawler's animations might be visually bugged slightly.")
+                .comment("For Runner and Crossbow zombies, install Fresh Animations pack.")
+                .comment("If installed, Fresh Animations will override Runner/Crossbow zombie animations.")
+                .define("use_better_animations", false);
+
+        COMMON_BUILDER.comment("################################################");
+
+        SHRIEKER_ZOMBIE_RANGE = COMMON_BUILDER
+                .comment("The range of a Shrieker Zombie in which it alerts other zombies.")
+                .defineInRange("shrieker_zombie_range", 225, 0, 1000);
+
+        COMMON_BUILDER.pop();
+        COMMON_CONFIG = COMMON_BUILDER.build();
+    }
+}

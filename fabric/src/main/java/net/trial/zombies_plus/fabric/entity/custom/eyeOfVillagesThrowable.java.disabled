@@ -1,0 +1,18 @@
+package net.trial.template_mod.entity.custom;
+
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EyeOfEnderEntity;
+import net.minecraft.world.World;
+
+public class eyeOfVillagesThrowable extends EyeOfEnderEntity {
+    public eyeOfVillagesThrowable(EntityType<? extends EyeOfEnderEntity> pEntityType, World pLevel) {
+        super(pEntityType, pLevel);
+    }
+
+    
+    public eyeOfVillagesThrowable(World pLevel, double pX, double pY, double pZ) {
+        this(EntityType.EYE_OF_ENDER, pLevel);
+        this.setPos(pX, pY, pZ);
+     }
+
+}

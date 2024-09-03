@@ -1,0 +1,17 @@
+{
+  "category.zombies_plus_tab": "Zombies+",
+  "entity.zombies_plus.axe_zombie": "Axe Zombie",
+  "entity.zombies_plus.bow_zombie": "Bow Zombie",
+  "entity.zombies_plus.brute_zombie": "Brute Zombie",
+  "entity.zombies_plus.crawler_zombie": "Crawler Zombie",
+  "entity.zombies_plus.crossbow_zombie": "Crossbow Zombie",
+  "entity.zombies_plus.runner_zombie": "Runner Zombie",
+  "entity.zombies_plus.shrieker_zombie": "Shrieker Zombie",
+  "item.zombies_plus.axe_zombie_spawn_egg": "Axe Zombie Spawn Egg",
+  "item.zombies_plus.bow_zombie_spawn_egg": "Bow Zombie Spawn Egg",
+  "item.zombies_plus.brute_zombie_spawn_egg": "Brute Zombie Spawn Egg",
+  "item.zombies_plus.crawler_zombie_spawn_egg": "Crawler Zombie Spawn Egg",
+  "item.zombies_plus.crossbow_zombie_spawn_egg": "Crossbow Zombie Spawn Egg",
+  "item.zombies_plus.runner_zombie_spawn_egg": "Runner Zombie Spawn Egg",
+  "item.zombies_plus.shrieker_zombie_spawn_egg": "Shrieker Zombie Spawn Egg"
+}

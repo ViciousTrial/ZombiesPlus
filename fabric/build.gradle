@@ -1,0 +1,143 @@
+plugins {
+    id 'com.github.johnrengelman.shadow'
+}
+
+rootProject.ext.set("mod_version", rootProject.ext.modVersion)
+
+version = rootProject.mod_version
+
+architectury {
+    platformSetupLoomIde()
+    fabric()
+}
+
+configurations {
+    common {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+
+    // Files in this configuration will be bundled into your mod using the Shadow plugin.
+    // Don't use the `shadow` configuration from the plugin itself as it's meant for excluding files.
+    shadowBundle {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+}
+
+base {
+	archivesName = rootProject.mod_id
+}
+
+repositories {
+
+	//maven { url 'https://maven.wispforest.io/releases/' }
+
+
+	// Add repositories to retrieve artifacts from in here.
+	// You should only use this when depending on other mods because
+	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
+	// for more information about repositories.
+
+	maven { url "https://maven.terraformersmc.com/releases/" }
+
+}
+
+loom {
+   
+    runs {
+		// This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
+		datagen {
+			inherit server
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated")}"
+			vmArg "-Dfabric-api.datagen.modid=${project.mod_id}"
+ 
+			runDir "build/datagen"
+		}
+	}
+}
+
+// Add the generated resources to the main source set
+sourceSets {
+	main {
+		resources {
+			srcDirs += [
+					'src/generated'
+			]
+		}
+	}
+}
+dependencies {
+	// To change the versions see the gradle.properties file
+	//minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+	//mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${rootProject.loader_version}"
+
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_version}"
+	//annotationProcessor modImplementation("io.wispforest:owo-lib:${rootProject.owo_version}")
+	//include "io.wispforest:owo-sentinel:${rootProject.owo_version}"
+	//implementation group: 'com.electronwill.night-config', name: 'toml', version: '3.8.1'
+	//include "com.electronwill.night-config:toml:3.8.1"
+
+	modImplementation "dev.architectury:architectury-fabric:${rootProject.architectury_api_version}"
+
+	modApi "me.shedaniel.cloth:cloth-config-fabric:${rootProject.cloth_config_version}"
+	// Uncomment the following line to enable the deprecated Fabric API modules. 
+	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
+
+	//modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${rootProject.fabric_version}"
+
+	common(project(path: ':common', configuration: 'namedElements')) { transitive false }
+   	shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
+}
+
+processResources {
+	inputs.property "version", rootProject.version
+
+	// Add any files/file patterns whose properties should be changed by retrieving them from gradle.properties
+	filesMatching("fabric.mod.json") {
+	expand(
+		"version": rootProject.version,
+		"minecraft_version": rootProject.minecraft_version,
+		"minecraft_version_range": rootProject.minecraft_version_range,
+		"forge_version": rootProject.forge_version,
+		"forge_version_range": rootProject.forge_version_range,
+		"loader_version_range": rootProject.loader_version_range,
+		"mod_id": rootProject.mod_id,
+		"mod_group_id": rootProject.mod_group_id,
+		"mod_name": rootProject.mod_name,
+		"mod_license": rootProject.mod_license,
+		"mod_version": rootProject.mod_version,
+		"mod_authors": rootProject.mod_authors,
+		"mod_description": rootProject.mod_description,
+		"mod_version_number": rootProject.mod_version_number,
+		"architectury_api_version": rootProject.architectury_api_version,
+		"fabric_loader_version_range": rootProject.fabric_loader_version_range,
+		"fabric_minimum_minecraft_version": rootProject.fabric_minimum_minecraft_version,
+		"cloth_config_version": rootProject.cloth_config_version
+	)
+	// Alternatively, you could expand everything from gradle.properties like this:
+	// expand rootProject.properties
+	}
+}
+
+shadowJar {
+    configurations = [project.configurations.shadowBundle]
+    archiveClassifier = 'dev-shadow'
+}
+
+remapJar {
+	dependsOn shadowJar
+    	input.set shadowJar.archiveFile
+}
+
+tasks.build {
+    dependsOn tasks.shadowJar
+}

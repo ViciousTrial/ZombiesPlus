@@ -1,0 +1,23 @@
+package net.trial.template_mod.entity;
+
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
+import net.trial.template_mod.modMain;
+import net.trial.template_mod.entity.custom.eyeOfVillagesThrowable;
+
+public class modEntities {
+    public static final EntityType<eyeOfVillagesThrowable> DICE_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(modMain.MOD_ID, "eye_of_villages_throwable"),
+            FabricEntityTypeBuilder.<eyeOfVillagesThrowable>create(SpawnGroup.MISC, eyeOfVillagesThrowable::new)
+                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build());
+
+        public static void registerModEntities() {
+                modMain.LOGGER.info("Registering Entities for " + modMain.MOD_ID);
+        }
+
+}

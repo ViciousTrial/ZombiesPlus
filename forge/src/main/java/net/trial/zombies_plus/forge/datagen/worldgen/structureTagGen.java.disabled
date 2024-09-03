@@ -1,0 +1,26 @@
+package net.trial.misgiving.datagen.worldgen;
+
+import java.util.concurrent.CompletableFuture;
+
+import org.jetbrains.annotations.Nullable;
+
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.StructureTagsProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.trial.misgiving.util.modTags;
+import net.trial.misgiving.worldgen.biome.structure.modStructures;
+
+public class structureTagGen extends StructureTagsProvider{
+
+    public structureTagGen(PackOutput pOutput, CompletableFuture<Provider> pProvider, String modId,
+            @Nullable ExistingFileHelper existingFileHelper) {
+        super(pOutput, pProvider, modId, existingFileHelper);
+    }
+
+    @Override
+    protected void addTags(Provider pProvider) {
+        this.tag(modTags.Structures.EYE_OF_ANOTHER_WORLD_LOCATED).add(modStructures.LABYRINTH);
+    }
+
+}

@@ -1,0 +1,111 @@
+plugins {
+    id "io.github.pacifistmc.forgix" version "1.2.9"
+    id 'dev.architectury.loom' version '1.6-SNAPSHOT' apply false
+    id 'architectury-plugin' version '3.4-SNAPSHOT'
+    id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
+}
+
+architectury {
+    minecraft = project.minecraft_version
+}
+
+def staticModVersionNumber
+
+ext {
+    def modVersionNumber = project.findProperty('mod_version_number') ?: '1.0.0'
+    def minecraftVersion = project.findProperty('available_minecraft_versions') ?: '1.20.1'
+
+    modVersion = "${modVersionNumber}-${minecraftVersion}"
+    staticModVersionNumber = modVersion
+}
+
+
+forgix {
+    group = "${mod_group_id}"
+    mergedJarName = "${mod_id}-${staticModVersionNumber}-[forge-fabric].jar"
+
+    forge {
+        projectName = "forge"
+        jarLocation = "build/libs/$rootProject.mod_group_id-forge-${staticModVersionNumber}.jar"
+
+    }
+
+    fabric {
+        projectName = "fabric"
+        jarLocation = "build/libs/$rootProject.mod_id-${staticModVersionNumber}.jar"
+    }
+}
+
+allprojects {
+    group = project.mod_group_id
+    version = project.mod_version
+}
+
+subprojects {
+    apply plugin: 'java'
+    //apply plugin: 'idea'
+    apply plugin: "architectury-plugin"
+    apply plugin: "dev.architectury.loom"
+    apply plugin: 'maven-publish'
+    //apply plugin: 'dev.architectury.loom'
+
+    base {
+        // Set up a suffixed format for the mod jar names, e.g. `example-fabric`.
+        archivesName = "$rootProject.mod_group_id-$project.name"
+    }
+
+    repositories {
+        //maven { url "https://maven.terraformersmc.com/releases/" }
+        //maven { url "https://maven.isxander.dev/releases" }
+
+        maven { url "https://maven.shedaniel.me/" }
+    }
+
+    loom {
+        silentMojangMappingsLicense()
+    }
+
+    dependencies {
+        minecraft "net.minecraft:minecraft:${rootProject.minecraft_version}"
+        mappings loom.officialMojangMappings()
+
+        modApi "me.shedaniel.cloth:cloth-config:${rootProject.cloth_config_version}"
+
+
+        //implementation group: 'com.electronwill.night-config', name: 'toml', version: '3.8.1'
+        
+    }
+
+    java {
+        // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+        // if it is present.
+        // If you remove this line, sources will not be generated.
+        withSourcesJar()
+
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        it.options.encoding = "UTF-8"
+        it.options.release = 17
+    }
+
+    // Configure Maven publishing.
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifactId = base.archivesName.get()
+                from components.java
+            }
+        }
+
+        // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+        repositories {
+            // Add repositories to publish to here.
+            // Notice: This block does NOT have the same function as the block in the top level.
+            // The repositories here will be used for publishing your artifact, not for
+            // retrieving dependencies.
+        }
+    }
+}

@@ -1,0 +1,22 @@
+package net.trial.template_mod.item;
+
+import net.minecraft.world.item.*;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+import net.trial.template_mod.modMain;
+import net.trial.template_mod.item.custom.eyeOfVillages;
+
+public class modItems {
+    public static final DeferredRegister<Item> ITEMS =
+            DeferredRegister.create(ForgeRegistries.ITEMS, modMain.MOD_ID);
+
+    public static final RegistryObject<Item> EYE_OF_VILLAGES = ITEMS.register("eye_of_villages",
+            () -> new eyeOfVillages(new Item.Properties()));
+
+
+    public  static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+    }
+}

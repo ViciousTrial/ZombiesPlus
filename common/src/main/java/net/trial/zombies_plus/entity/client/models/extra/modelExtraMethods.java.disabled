@@ -1,0 +1,29 @@
+package net.trial.frenzied_horde.entity.client.models.extra;
+
+import org.joml.Random;
+
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.world.entity.monster.Zombie;
+import net.trial.frenzied_horde.frenziedHorde;
+import net.trial.frenzied_horde.util.modConfig;
+
+public class modelExtraMethods {
+    public static void determineArmless(Zombie entity, ModelPart leftArm, ModelPart rightArm){
+        frenziedHorde.LOGGER.info(String.valueOf(modConfig.TISSOU_ZOMBIE_PACK_DETAILS.get()));
+        if (modConfig.TISSOU_ZOMBIE_PACK_DETAILS.get()){
+            int randomNum = new Random().nextInt(20);
+            int randomNum2 = new Random().nextInt(20);
+
+            if (randomNum == 1){
+                leftArm.visible = false;
+            }
+            if (randomNum2 == 1){
+                rightArm.visible = false;
+            }
+
+            frenziedHorde.LOGGER.info(String.valueOf(randomNum2));
+            frenziedHorde.LOGGER.info(String.valueOf(randomNum));
+
+		}
+    }
+}
