@@ -69,12 +69,12 @@ public class shriekerZombieAttackGoal extends ZombieAttackGoal {
         super.tick();
     }
 
-    private int minDistance = 48; // 3 chunks
-    private int maxDistance = 64; // 4 chunks
+    private int minDistance = 48;
+    private int maxDistance = 64;
 
     private Entity returnZombie(Level world) {
         Entity chosen;
-        int randomNum = RandomSource.create().nextInt(6) + 1; // Random number between 1 and 5
+        int randomNum = RandomSource.create().nextInt(6) + 1;
 
         switch (randomNum) {
             case 1:
@@ -109,7 +109,7 @@ public class shriekerZombieAttackGoal extends ZombieAttackGoal {
 
             AABB area = this.currentZombie.getBoundingBox()
                     .inflate(modMainCommon.modConfigInstance.shriekerZombieRange);
-            // Filter for Zombie entities only
+
             java.util.List<Zombie> nearbyZombies = world.getEntitiesOfClass(Zombie.class, area, zombie -> true);
 
             modMainCommon.LOGGER.info("Number of nearby zombies: " + nearbyZombies.size());
@@ -156,13 +156,11 @@ public class shriekerZombieAttackGoal extends ZombieAttackGoal {
 
                     boolean positionFound = false;
 
-                    // Attempt to find a valid position within a certain range
                     for (int attempt = 0; attempt < 10; attempt++) {
                         double checkX = baseX + (randomSource.nextDouble() - 0.5) * 2;
                         double checkY = baseY;
                         double checkZ = baseZ + (randomSource.nextDouble() - 0.5) * 2;
 
-                        // Check if the area is clear
                         if (world.noCollision(reinforcement,
                                 reinforcement.getBoundingBox().move(checkX, checkY, checkZ))) {
                             reinforcement.moveTo(checkX, checkY, checkZ);
