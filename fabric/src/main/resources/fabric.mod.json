@@ -30,8 +30,8 @@
 	"depends": {
 		"fabricloader": "${fabric_loader_version_range}",
 		"minecraft": "~${fabric_minimum_minecraft_version}",
-		"architectury": ">=${architectury_api_version}",
-		"cloth-config": ">=${cloth_config_version}",
+		"architectury": ">=${min_architectury_api_version}",
+		"cloth-config": ">=${min_cloth_config_version}",
 		"java": ">=17",
 		"fabric-api": "*"
 	},

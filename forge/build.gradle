@@ -67,7 +67,7 @@ processResources {
     filesMatching('META-INF/mods.toml') {
         expand(
             version: version,
-            minecraft_version: minecraft_version,
+            minecraft_version: project.minecraft_version,
             minecraft_version_range: minecraft_version_range,
             forge_version: forge_version,
             forge_version_range: forge_version_range,
@@ -80,7 +80,9 @@ processResources {
             mod_description: mod_description,
             mod_version_number: mod_version_number,
             architectury_api_version: architectury_api_version,
-            cloth_config_version: cloth_config_version
+            cloth_config_version: cloth_config_version,
+            min_architectury_api_version: min_architectury_api_version,
+            min_cloth_config_version: min_cloth_config_version
         )
     }
 }

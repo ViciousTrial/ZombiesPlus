@@ -20,6 +20,8 @@ modId="${mod_id}" #mandatory
 version="${mod_version}" #mandatory
 # A display name for the mod
 displayName="${mod_name}" #mandatory
+
+logoFile = "icon.png"
 # A URL to query for updates for this mod. See the JSON update specification https://docs.minecraftforge.net/en/latest/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
@@ -65,13 +67,13 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId = "architectury"
     mandatory = true
-    versionRange = "[${architectury_api_version},)"
+    versionRange = "[${min_architectury_api_version},)"
     ordering = "AFTER"
     side = "BOTH"
 [[dependencies.${mod_id}]]
     modId = "cloth_config"
     mandatory = true
-    versionRange = "[${cloth_config_version},)"
+    versionRange = "[${min_cloth_config_version},)"
     ordering = "AFTER"
     side = "BOTH"
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares

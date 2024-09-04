@@ -121,7 +121,9 @@ processResources {
 		"architectury_api_version": rootProject.architectury_api_version,
 		"fabric_loader_version_range": rootProject.fabric_loader_version_range,
 		"fabric_minimum_minecraft_version": rootProject.fabric_minimum_minecraft_version,
-		"cloth_config_version": rootProject.cloth_config_version
+		"cloth_config_version": rootProject.cloth_config_version,
+		"min_architectury_api_version": rootProject.min_architectury_api_version,
+          "min_cloth_config_version": rootProject.min_cloth_config_version
 	)
 	// Alternatively, you could expand everything from gradle.properties like this:
 	// expand rootProject.properties
