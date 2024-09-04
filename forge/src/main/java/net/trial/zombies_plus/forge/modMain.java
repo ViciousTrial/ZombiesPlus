@@ -25,8 +25,6 @@ import net.trial.zombies_plus.entity.custom.crawlerZombieEntity;
 import net.trial.zombies_plus.entity.custom.crossbowZombieEntity;
 import net.trial.zombies_plus.entity.custom.runnerZombieEntity;
 import net.trial.zombies_plus.entity.custom.shriekerZombieEntity;
-import net.trial.zombies_plus.item.modCreativeTab;
-import net.trial.zombies_plus.item.modItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(modMainCommon.MOD_ID)
