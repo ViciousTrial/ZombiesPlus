@@ -7,7 +7,9 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.trial.zombies_plus.modMainCommon;
 import net.trial.zombies_plus.forge.modMain;
+import net.trial.zombies_plus.forge.datagen.entity.entitySpawnGen;
 import net.trial.zombies_plus.forge.datagen.entity.entityTagGen;
 import net.trial.zombies_plus.forge.datagen.item.itemModelProvider;
 import net.trial.zombies_plus.forge.datagen.lang.langGen;
@@ -38,6 +40,7 @@ public class dataGen {
         //generator.addProvider(event.includeServer(), new worldGenProvider(packOutput, lookupProvider));
 
         generator.addProvider(event.includeClient(), new langGen(packOutput, modMain.MOD_ID, "en_us"));
+        generator.addProvider(event.includeServer(), new entitySpawnGen(packOutput, modMainCommon.MOD_ID));
         //generator.addProvider(event.includeServer(), new recipeProvider(packOutput));
 
         
