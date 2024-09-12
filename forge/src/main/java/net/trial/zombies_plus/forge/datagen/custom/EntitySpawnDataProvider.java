@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
-import net.trial.zombies_plus.modMainCommon;
+import net.trial.zombies_plus.ModMainCommon;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +101,7 @@ public abstract class EntitySpawnDataProvider implements DataProvider {
           try {
                return DataProvider.saveStable(cache, spawnRulesJson, outputPath2);
           } catch (Exception e) {
-               modMainCommon.LOGGER.info("Failed to create new spawn file.json!");
+               ModMainCommon.LOGGER.info("Failed to create new spawn file.json!");
                throw new RuntimeException("Failed to save entity spawn rule file: " + outputPath2, e);
           }
      }

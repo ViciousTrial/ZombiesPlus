@@ -11,27 +11,28 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.trial.zombies_plus.modMainCommon;
+import net.trial.zombies_plus.ModMainCommon;
 import net.trial.zombies_plus.entity.modEntities;
-import net.trial.zombies_plus.entity.client.modelRenderer;
+import net.trial.zombies_plus.entity.client.ModelRenderer;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(modMainCommon.MOD_ID)
-public class modMain {
+@Mod(ModMainCommon.MOD_ID)
+public class ModMain {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = modMainCommon.MOD_ID;
+    public static final String MOD_ID = ModMainCommon.MOD_ID;
     // Directly reference a slf4j logger
     /* private static final Logger LOGGER = LogUtils.getLogger(); */
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
 
-    public modMain() {
+    public ModMain() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        EventBuses.registerModEventBus(modMainCommon.MOD_ID, modEventBus);
+        EventBuses.registerModEventBus(ModMainCommon.MOD_ID, modEventBus);
 
         //modEntities.ENTITY_TYPES.register();
         //modItems.ITEMS.register();
 
-        modMainCommon.init();
+        ModMainCommon.init();
+
 
         //modCreativeModeTabs.register(modEventBus);
 
@@ -51,7 +52,7 @@ public class modMain {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
-        modMainCommon.LOGGER.info("Loaded mod!");
+        ModMainCommon.LOGGER.info("Loaded mod!");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -77,13 +78,14 @@ public class modMain {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            EntityRenderers.register(modEntities.RUNNER_ZOMBIE.get(), modelRenderer.runnerZombieModelRenderer::new);
-            EntityRenderers.register(modEntities.BRUTE_ZOMBIE.get(), modelRenderer.bruteZombieModelRenderer::new);
-            EntityRenderers.register(modEntities.CRAWLER_ZOMBIE.get(), modelRenderer.crawlerZombieModelRenderer::new);     
-            EntityRenderers.register(modEntities.CROSSBOW_ZOMBIE.get(), modelRenderer.crossbowZombieModelRenderer::new);    
-            EntityRenderers.register(modEntities.BOW_ZOMBIE.get(), modelRenderer.bowZombieModelRenderer::new);
-            EntityRenderers.register(modEntities.SHRIEKER_ZOMBIE.get(), modelRenderer.shriekerZombieModelRenderer::new);
-            EntityRenderers.register(modEntities.AXE_ZOMBIE.get(), modelRenderer.axeZombieModelRenderer::new);
+            EntityRenderers.register(modEntities.RUNNER_ZOMBIE.get(), ModelRenderer.runnerZombieModelRenderer::new);
+            EntityRenderers.register(modEntities.BRUTE_ZOMBIE.get(), ModelRenderer.bruteZombieModelRenderer::new);
+            EntityRenderers.register(modEntities.CRAWLER_ZOMBIE.get(), ModelRenderer.crawlerZombieModelRenderer::new);
+            EntityRenderers.register(modEntities.CROSSBOW_ZOMBIE.get(), ModelRenderer.crossbowZombieModelRenderer::new);
+            EntityRenderers.register(modEntities.BOW_ZOMBIE.get(), ModelRenderer.bowZombieModelRenderer::new);
+            EntityRenderers.register(modEntities.SHRIEKER_ZOMBIE.get(), ModelRenderer.shriekerZombieModelRenderer::new);
+            EntityRenderers.register(modEntities.AXE_ZOMBIE.get(), ModelRenderer.axeZombieModelRenderer::new);
+            EntityRenderers.register(modEntities.SWORD_ZOMBIE.get(), ModelRenderer.swordZombieModelRenderer::new);
             }
     }
 }

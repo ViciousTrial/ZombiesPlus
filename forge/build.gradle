@@ -47,6 +47,7 @@ configurations {
 }
 
 dependencies {
+    minecraft "net.minecraft:minecraft:${project.minecraft_version}"
     forge "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Architectury API. This is optional, and you can comment it out if you don't need it.

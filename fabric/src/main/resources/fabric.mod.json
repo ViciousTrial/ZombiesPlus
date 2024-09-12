@@ -16,13 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"${mod_group_id}.fabric.modMain"
+			"${mod_group_id}.fabric.ModMain"
 		],
 		"client": [
-			"${mod_group_id}.fabric.modClient"
+			"${mod_group_id}.fabric.ModClient"
 		],
 		"fabric-datagen": [
-			"${mod_group_id}.fabric.datagen.dataGen"
+			"${mod_group_id}.fabric.datagen.DataGen"
 		]
 	},
 	"mixins": [
