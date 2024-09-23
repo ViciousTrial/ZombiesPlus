@@ -8,7 +8,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.trial.zombies_plus.ModMainCommon;
 import net.trial.zombies_plus.entity.custom.*;
 
-public class modEntities {
+public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ModMainCommon.MOD_ID,
             Registries.ENTITY_TYPE);
 
@@ -43,4 +43,21 @@ public class modEntities {
     public static final RegistrySupplier<EntityType<SwordZombieEntity>> SWORD_ZOMBIE = ENTITY_TYPES
             .register("sword_zombie", () -> EntityType.Builder.of(SwordZombieEntity::new, MobCategory.MONSTER)
                     .sized(1f, 1f).build("sword_zombie"));
+
+    public static final RegistrySupplier<EntityType<WeakZombieEntity>> WEAK_ZOMBIE = ENTITY_TYPES
+            .register("weak_zombie", () -> EntityType.Builder.of(WeakZombieEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("weak_zombie"));
+
+    public static final RegistrySupplier<EntityType<SlowZombieEntity>> SLOW_ZOMBIE = ENTITY_TYPES
+            .register("slow_zombie", () -> EntityType.Builder.of(SlowZombieEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("slow_zombie"));
+
+    public static final RegistrySupplier<EntityType<VileZombieEntity>> VILE_ZOMBIE = ENTITY_TYPES
+            .register("vile_zombie", () -> EntityType.Builder.of(VileZombieEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("vile_zombie"));
+
+    public static final RegistrySupplier<EntityType<CaveZombieEntity>> CAVE_ZOMBIE = ENTITY_TYPES
+            .register("cave_zombie", () -> EntityType.Builder.of(CaveZombieEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("cave_zombie"));
+
 }

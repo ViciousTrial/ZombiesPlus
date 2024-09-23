@@ -31,11 +31,8 @@ public class BowZombieEntity extends AbstractZombieEntity implements RangedAttac
 
 
     @Override
-    public ResourceLocation getTexture(){
-        if (ModMainCommon.modConfigInstance.zombieTextureOverride){
-            return super.getTexture();
-        }
-        return new ResourceLocation(ModMainCommon.MOD_ID, "textures/entity/bow_zombie/bow_zombie.png");
+    protected String getCustomTexturePath() {
+        return "textures/entity/bow_zombie/bow_zombie.png";
     }
 
      public static AttributeSupplier.Builder createAttributes() {

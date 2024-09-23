@@ -1,12 +1,12 @@
 package net.trial.zombies_plus;
 
+import net.trial.zombies_plus.entity.ModEntities;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
-import net.trial.zombies_plus.entity.modEntities;
 import net.trial.zombies_plus.item.ModCreativeTab;
 import net.trial.zombies_plus.item.ModItems;
 import net.trial.zombies_plus.util.ModConfig;
@@ -19,7 +19,7 @@ public final class ModMainCommon {
     public static ModConfig modConfigInstance = null;
 
     public static void init() {
-        modEntities.ENTITY_TYPES.register();
+        ModEntities.ENTITY_TYPES.register();
         ModItems.ITEMS.register();
         ModCreativeTab.TABS.register();
 

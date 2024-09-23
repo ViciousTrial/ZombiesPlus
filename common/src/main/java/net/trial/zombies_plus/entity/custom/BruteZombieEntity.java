@@ -24,11 +24,11 @@ public class BruteZombieEntity extends AbstractZombieEntity {
         super(pEntityType, pLevel);
         this.refreshDimensions();
 
-        if (ModMainCommon.modConfigInstance.zombieTextureOverride) {
+        if (ModMainCommon.modConfigInstance.tissouZombiePackDetails) {
             int variantIndex = new Random().nextInt(VARIANT_TEXTURES.length);
             this.variantTexture = VARIANT_TEXTURES[variantIndex];
         } else {
-            this.variantTexture = new ResourceLocation(ModMainCommon.MOD_ID, "textures/entity/brute_zombie/brute_zombie.png");
+            this.variantTexture = new ResourceLocation(ModMainCommon.MOD_ID, getCustomTexturePath());
         }
     }
 
@@ -39,8 +39,13 @@ public class BruteZombieEntity extends AbstractZombieEntity {
 
 
     @Override
-    public ResourceLocation getTexture(){
+    public ResourceLocation getCustomTexture(){
         return this.variantTexture;
+    }
+
+    @Override
+    protected String getCustomTexturePath() {
+        return "textures/entity/brute_zombie/brute_zombie.png";
     }
      public static AttributeSupplier.Builder createAttributes() {
       return Monster.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35.0D).add(Attributes.MOVEMENT_SPEED, (double)0.17F).add(Attributes.ATTACK_DAMAGE, 5D).add(Attributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE).add(Attributes.MAX_HEALTH, 40D);

@@ -14,31 +14,25 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.trial.zombies_plus.ModMainCommon;
 
-public class AxeZombieEntity extends AbstractZombieEntity {
+public class WeakZombieEntity extends AbstractZombieEntity {
 
-    public AxeZombieEntity(EntityType<? extends Zombie> pEntityType, Level pLevel) {
+    public WeakZombieEntity(EntityType<? extends Zombie> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.populateDefaultEquipmentSlots(random, null);
     }
-
 
     @Override
     protected String getCustomTexturePath() {
-        return "textures/entity/axe_zombie/axe_zombie.png";
+        return "textures/entity/weak_zombie/weak_zombie.png";
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-    return Monster.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35.0D).add(Attributes.MOVEMENT_SPEED, (double)0.23F).add(Attributes.ATTACK_DAMAGE, 6.0D).add(Attributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE);
+        return Monster.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35.0D).add(Attributes.MOVEMENT_SPEED, (double) 0.21F).add(Attributes.ATTACK_DAMAGE, 1.0D).add(Attributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE);
+
     }
 
     @Override
     protected void registerGoals() {
         super.registerGoals();
-    }
-
-    @Override
-    protected void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_AXE));
     }
 
 }

@@ -2,6 +2,7 @@ package net.trial.zombies_plus.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import net.minecraft.client.model.DrownedModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.AbstractZombieRenderer;
@@ -186,6 +187,70 @@ public class ModelRenderer {
         }
 
         public swordZombieModelRenderer(EntityRendererProvider.Context pContext, ModelLayerLocation pZombieLayer, ModelLayerLocation pInnerArmor, ModelLayerLocation pOuterArmor) {
+            super(pContext, new RunnerZombieModel<>(pContext.bakeLayer(pZombieLayer)), new RunnerZombieModel<>(pContext.bakeLayer(pInnerArmor)), new RunnerZombieModel<>(pContext.bakeLayer(pOuterArmor)));
+        }
+
+    }
+
+    public static class weakZombieModelRenderer extends AbstractZombieRenderer<WeakZombieEntity, RunnerZombieModel<WeakZombieEntity>> {
+        public weakZombieModelRenderer(EntityRendererProvider.Context p_174456_) {
+            this(p_174456_, net.minecraft.client.model.geom.ModelLayers.ZOMBIE, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_INNER_ARMOR, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_OUTER_ARMOR);
+        }
+
+        @Override
+        public ResourceLocation getTextureLocation(WeakZombieEntity pEntity) {
+            return pEntity.getTexture();
+        }
+
+        public weakZombieModelRenderer(EntityRendererProvider.Context pContext, ModelLayerLocation pZombieLayer, ModelLayerLocation pInnerArmor, ModelLayerLocation pOuterArmor) {
+            super(pContext, new RunnerZombieModel<>(pContext.bakeLayer(pZombieLayer)), new RunnerZombieModel<>(pContext.bakeLayer(pInnerArmor)), new RunnerZombieModel<>(pContext.bakeLayer(pOuterArmor)));
+        }
+
+    }
+
+     public static class slowZombieModelRenderer extends AbstractZombieRenderer<SlowZombieEntity, RunnerZombieModel<SlowZombieEntity>> {
+        public slowZombieModelRenderer(EntityRendererProvider.Context p_174456_) {
+            this(p_174456_, net.minecraft.client.model.geom.ModelLayers.ZOMBIE, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_INNER_ARMOR, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_OUTER_ARMOR);
+        }
+
+        @Override
+        public ResourceLocation getTextureLocation(SlowZombieEntity pEntity) {
+            return pEntity.getTexture();
+        }
+
+        public slowZombieModelRenderer(EntityRendererProvider.Context pContext, ModelLayerLocation pZombieLayer, ModelLayerLocation pInnerArmor, ModelLayerLocation pOuterArmor) {
+            super(pContext, new RunnerZombieModel<>(pContext.bakeLayer(pZombieLayer)), new RunnerZombieModel<>(pContext.bakeLayer(pInnerArmor)), new RunnerZombieModel<>(pContext.bakeLayer(pOuterArmor)));
+        }
+
+    }
+
+    public static class vileZombieModelRenderer extends AbstractZombieRenderer<VileZombieEntity, DrownedModel<VileZombieEntity>> {
+        public vileZombieModelRenderer(EntityRendererProvider.Context p_174456_) {
+            this(p_174456_, net.minecraft.client.model.geom.ModelLayers.ZOMBIE, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_INNER_ARMOR, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_OUTER_ARMOR);
+        }
+
+        @Override
+        public ResourceLocation getTextureLocation(VileZombieEntity pEntity) {
+            return pEntity.getTexture();
+        }
+
+        public vileZombieModelRenderer(EntityRendererProvider.Context pContext, ModelLayerLocation pZombieLayer, ModelLayerLocation pInnerArmor, ModelLayerLocation pOuterArmor) {
+            super(pContext, new DrownedModel<>(pContext.bakeLayer(pZombieLayer)), new DrownedModel<>(pContext.bakeLayer(pInnerArmor)), new DrownedModel<>(pContext.bakeLayer(pOuterArmor)));
+        }
+
+    }
+
+    public static class caveZombieModelRenderer extends AbstractZombieRenderer<CaveZombieEntity, RunnerZombieModel<CaveZombieEntity>> {
+        public caveZombieModelRenderer(EntityRendererProvider.Context p_174456_) {
+            this(p_174456_, net.minecraft.client.model.geom.ModelLayers.ZOMBIE, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_INNER_ARMOR, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_OUTER_ARMOR);
+        }
+
+        @Override
+        public ResourceLocation getTextureLocation(CaveZombieEntity pEntity) {
+            return pEntity.getTexture();
+        }
+
+        public caveZombieModelRenderer(EntityRendererProvider.Context pContext, ModelLayerLocation pZombieLayer, ModelLayerLocation pInnerArmor, ModelLayerLocation pOuterArmor) {
             super(pContext, new RunnerZombieModel<>(pContext.bakeLayer(pZombieLayer)), new RunnerZombieModel<>(pContext.bakeLayer(pInnerArmor)), new RunnerZombieModel<>(pContext.bakeLayer(pOuterArmor)));
         }
 

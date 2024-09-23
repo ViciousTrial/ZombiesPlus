@@ -42,12 +42,9 @@ public class ShriekerZombieEntity extends AbstractZombieEntity {
         this.refreshDimensions();
     }
 
-    @Override
-    public ResourceLocation getTexture(){
-        if (ModMainCommon.modConfigInstance.zombieTextureOverride){
-            return super.getTexture();
-        }
-        return new ResourceLocation(ModMainCommon.MOD_ID, "textures/entity/shrieker_zombie/shrieker_zombie.png");
+   @Override
+    protected String getCustomTexturePath() {
+        return "textures/entity/shrieker_zombie/shrieker_zombie.png";
     }
 
      public static AttributeSupplier.Builder createAttributes() {

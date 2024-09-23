@@ -1,6 +1,7 @@
 package net.trial.zombies_plus.entity.ai;
 
 import net.trial.zombies_plus.ModMainCommon;
+import net.trial.zombies_plus.entity.ModEntities;
 import org.joml.Random;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -11,7 +12,6 @@ import net.minecraft.world.entity.ai.goal.ZombieAttackGoal;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.trial.zombies_plus.entity.modEntities;
 import net.trial.zombies_plus.entity.custom.AxeZombieEntity;
 import net.trial.zombies_plus.entity.custom.BowZombieEntity;
 import net.trial.zombies_plus.entity.custom.BruteZombieEntity;
@@ -78,25 +78,25 @@ public class ShriekerZombieAttackGoal extends ZombieAttackGoal {
 
         switch (randomNum) {
             case 1:
-                chosen = new AxeZombieEntity(modEntities.AXE_ZOMBIE.get(), world);
+                chosen = new AxeZombieEntity(ModEntities.AXE_ZOMBIE.get(), world);
                 break;
             case 2:
-                chosen = new BowZombieEntity(modEntities.BOW_ZOMBIE.get(), world);
+                chosen = new BowZombieEntity(ModEntities.BOW_ZOMBIE.get(), world);
                 break;
             case 3:
-                chosen = new CrossbowZombieEntity(modEntities.CROSSBOW_ZOMBIE.get(), world);
+                chosen = new CrossbowZombieEntity(ModEntities.CROSSBOW_ZOMBIE.get(), world);
                 break;
             case 4:
-                chosen = new CrawlerZombieEntity(modEntities.CRAWLER_ZOMBIE.get(), world);
+                chosen = new CrawlerZombieEntity(ModEntities.CRAWLER_ZOMBIE.get(), world);
                 break;
             case 5:
-                chosen = new BruteZombieEntity(modEntities.BRUTE_ZOMBIE.get(), world);
+                chosen = new BruteZombieEntity(ModEntities.BRUTE_ZOMBIE.get(), world);
                 break;
             case 6:
-                chosen = new RunnerZombieEntity(modEntities.RUNNER_ZOMBIE.get(), world);
+                chosen = new RunnerZombieEntity(ModEntities.RUNNER_ZOMBIE.get(), world);
                 break;
             default:
-                chosen = new RunnerZombieEntity(modEntities.RUNNER_ZOMBIE.get(), world);
+                chosen = new RunnerZombieEntity(ModEntities.RUNNER_ZOMBIE.get(), world);
                 break;
         }
 

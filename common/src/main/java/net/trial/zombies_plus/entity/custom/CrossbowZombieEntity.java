@@ -35,11 +35,8 @@ public class CrossbowZombieEntity extends AbstractZombieEntity implements Crossb
 
 
     @Override
-    public ResourceLocation getTexture(){
-        if (ModMainCommon.modConfigInstance.zombieTextureOverride){
-            return super.getTexture();
-        }
-        return new ResourceLocation(ModMainCommon.MOD_ID, "textures/entity/crossbow_zombie/crossbow_zombie.png");
+    protected String getCustomTexturePath() {
+        return "textures/entity/crossbow_zombie/crossbow_zombie.png";
     }
 
      public static AttributeSupplier.Builder createAttributes() {

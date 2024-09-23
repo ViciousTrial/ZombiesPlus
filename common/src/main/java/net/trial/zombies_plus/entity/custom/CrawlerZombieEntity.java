@@ -19,11 +19,8 @@ public class CrawlerZombieEntity extends AbstractZombieEntity {
     }
 
     @Override
-    public ResourceLocation getTexture(){
-        if (ModMainCommon.modConfigInstance.zombieTextureOverride){
-            return super.getTexture();
-        }
-        return new ResourceLocation(ModMainCommon.MOD_ID, "textures/entity/crawler_zombie/crawler_zombie.png");
+    protected String getCustomTexturePath() {
+        return "textures/entity/crawler_zombie/crawler_zombie.png";
     }
 
 

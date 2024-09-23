@@ -2,6 +2,7 @@ package net.trial.zombies_plus.entity.custom;
 
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
@@ -10,15 +11,20 @@ import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.hoglin.Hoglin;
+import net.minecraft.world.entity.monster.hoglin.HoglinAi;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.dimension.DimensionType;
+import net.trial.zombies_plus.ModMainCommon;
 
 public abstract class AbstractZombieEntity extends Zombie {
-    
+
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
     private boolean hasSetupAnim = false;
@@ -31,50 +37,59 @@ public abstract class AbstractZombieEntity extends Zombie {
         super(pEntityType, pLevel);
         this.refreshDimensions();
     }
-    
-    public ResourceLocation getTexture(){
-        return new ResourceLocation("minecraft", "textures/entity/zombie/zombie.png");
-    }
-    
-   public static boolean getAggressiveState(){
-    return isAggro;
-   }
 
-   @Override
-   public boolean isAggressive() {
+    public ResourceLocation getTexture() {
+        if (ModMainCommon.modConfigInstance.zombieTextureOverride) {
+            return new ResourceLocation("minecraft", "textures/entity/zombie/zombie.png");
+        }
+        return getCustomTexture();
+    }
+
+    protected ResourceLocation getCustomTexture() {
+        return new ResourceLocation(ModMainCommon.MOD_ID, getCustomTexturePath());
+    }
+
+    protected abstract String getCustomTexturePath();
+
+    public static boolean getAggressiveState() {
+        return isAggro;
+    }
+
+    @Override
+    public boolean isAggressive() {
         isAggro = super.isAggressive();
         return isAggro;
-   }
-
-   @Override
-   protected boolean convertsInWater() {
-       return false;
-   }
-
-   public float rotlerpRad(float pAngle, float pMaxAngle, float pMul) {
-    float f = (pMul - pMaxAngle) % ((float)Math.PI * 2F);
-    if (f < -(float)Math.PI) {
-       f += ((float)Math.PI * 2F);
     }
 
-    if (f >= (float)Math.PI) {
-       f -= ((float)Math.PI * 2F);
+    @Override
+    protected boolean convertsInWater() {
+        return false;
     }
 
-    return pMaxAngle + pAngle * f;
- }
+    public float rotlerpRad(float pAngle, float pMaxAngle, float pMul) {
+        float f = (pMul - pMaxAngle) % ((float) Math.PI * 2F);
+        if (f < -(float) Math.PI) {
+            f += ((float) Math.PI * 2F);
+        }
+
+        if (f >= (float) Math.PI) {
+            f -= ((float) Math.PI * 2F);
+        }
+
+        return pMaxAngle + pAngle * f;
+    }
 
 
     @Override
     public void tick() {
         super.tick();
-        if(this.level().isClientSide()) {
+        if (this.level().isClientSide()) {
             setupAnimationStates();
         }
     }
 
     protected void setupAnimationStates() {
-        if(this.idleAnimationTimeout <= 0) {
+        if (this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
             this.idleAnimationState.start(this.tickCount);
         } else {
@@ -84,14 +99,25 @@ public abstract class AbstractZombieEntity extends Zombie {
 
     @Override
     public void setBaby(boolean pChildZombie) {
-        
+
     }
 
-    
+    @Override
+    public boolean checkSpawnRules(LevelAccessor levelAccessor, MobSpawnType mobSpawnType) {
+        return super.checkSpawnRules(levelAccessor, mobSpawnType);
+    }
+
+    public static boolean checkEntitySpawnRules(EntityType<? extends Monster> entityType, ServerLevelAccessor serverLevelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource){
+        return Monster.checkMonsterSpawnRules(entityType, serverLevelAccessor, mobSpawnType, blockPos, randomSource);
+    }
+
+    // if you need to override a static method, then just copy and paste the static method into the class you are overriding from
+    // you cant @Override static methods, so you need to duplicate the method
+
     @Override
     protected void updateWalkAnimation(float pPartialTick) {
         float f;
-        if(this.getPose() == Pose.STANDING) {
+        if (this.getPose() == Pose.STANDING) {
             f = Math.min(pPartialTick * 6F, 1f);
         } else {
             f = 0f;
@@ -99,15 +125,15 @@ public abstract class AbstractZombieEntity extends Zombie {
         this.walkAnimation.update(f, 0.2f);
     }
 
-    protected int getAnimationIdleTimeout(){
+    protected int getAnimationIdleTimeout() {
         return idleAnimationTimeout;
     }
 
-    public boolean getHasSetupAnim(){
+    public boolean getHasSetupAnim() {
         return hasSetupAnim;
     }
 
-    public void setHasSetupAnim(boolean value){
+    public void setHasSetupAnim(boolean value) {
         hasSetupAnim = value;
     }
 
@@ -115,15 +141,17 @@ public abstract class AbstractZombieEntity extends Zombie {
         arm.visible = value;
         leftArmVisible = value;
     }
+
     public void setRightArmVisible(boolean value, ModelPart arm) {
         arm.visible = value;
         leftArmVisible = value;
     }
 
-    public boolean getLeftArmVisible(){
+    public boolean getLeftArmVisible() {
         return leftArmVisible;
     }
-    public boolean getRightArmVisible(){
+
+    public boolean getRightArmVisible() {
         return rightArmVisible;
     }
 

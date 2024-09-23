@@ -7,7 +7,9 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
-import net.trial.zombies_plus.entity.modEntities;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.data.ForgeBiomeTagsProvider;
+import net.trial.zombies_plus.entity.ModEntities;
 import net.trial.zombies_plus.forge.datagen.custom.EntitySpawnDataProvider;
 import net.trial.zombies_plus.util.ZombieSpawnProperties;
 
@@ -22,51 +24,75 @@ public class EntitySpawnGen extends EntitySpawnDataProvider {
 
           entry.add(createConfigBasedSpawnData(
                     cache,
-                    modEntities.AXE_ZOMBIE.getId(),
+                    ModEntities.AXE_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
                     ZombieSpawnProperties.axeZombieSpawnProperties));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
-                    modEntities.RUNNER_ZOMBIE.getId(),
+                    ModEntities.RUNNER_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
                     ZombieSpawnProperties.runnerZombieSpawnProperties));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
-                    modEntities.BRUTE_ZOMBIE.getId(),
+                    ModEntities.BRUTE_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
                     ZombieSpawnProperties.bruteZombieSpawnProperties));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
-                    modEntities.CRAWLER_ZOMBIE.getId(),
+                    ModEntities.CRAWLER_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
                     ZombieSpawnProperties.crawlerZombieSpawnProperties));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
-                    modEntities.BOW_ZOMBIE.getId(),
+                    ModEntities.BOW_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
                     ZombieSpawnProperties.bowZombieSpawnProperties));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
-                    modEntities.CROSSBOW_ZOMBIE.getId(),
+                    ModEntities.CROSSBOW_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
                     ZombieSpawnProperties.crossbowZombieSpawnProperties));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
-                    modEntities.SHRIEKER_ZOMBIE.getId(),
+                    ModEntities.SHRIEKER_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.shriekerSpawnZombieProperties));
+                    ZombieSpawnProperties.shriekerZombieSpawnProperties));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
-                    modEntities.SWORD_ZOMBIE.getId(),
+                    ModEntities.SWORD_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.swordZombieProperties));
+                    ZombieSpawnProperties.swordZombieSpawnProperties));
+
+           entry.add(createConfigBasedSpawnData(
+                    cache,
+                    ModEntities.WEAK_ZOMBIE.getId(),
+                    BiomeTags.IS_OVERWORLD,
+                    ZombieSpawnProperties.weakZombieSpawnProperties));
+
+           entry.add(createConfigBasedSpawnData(
+                    cache,
+                    ModEntities.SLOW_ZOMBIE.getId(),
+                    BiomeTags.IS_OVERWORLD,
+                    ZombieSpawnProperties.slowZombieSpawnProperties));
+
+           entry.add(createConfigBasedSpawnData(
+                    cache,
+                    ModEntities.VILE_ZOMBIE.getId(),
+                    Tags.Biomes.IS_SWAMP,
+                    ZombieSpawnProperties.slowZombieSpawnProperties));
+
+           entry.add(createConfigBasedSpawnData(
+                    cache,
+                    ModEntities.CAVE_ZOMBIE.getId(),
+                    Tags.Biomes.IS_CAVE,
+                    ZombieSpawnProperties.caveZombieSpawnProperties));
 
      }
 
