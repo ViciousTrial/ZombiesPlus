@@ -23,5 +23,6 @@
   "item.zombies_plus.slow_zombie_spawn_egg": "Slow Zombie Spawn Egg",
   "item.zombies_plus.sword_zombie_spawn_egg": "Sword Zombie Spawn Egg",
   "item.zombies_plus.vile_zombie_spawn_egg": "Vile Zombie Spawn Egg",
-  "item.zombies_plus.weak_zombie_spawn_egg": "Weak Zombie Spawn Egg"
+  "item.zombies_plus.weak_zombie_spawn_egg": "Weak Zombie Spawn Egg",
+  "sound.zombies_plus.cave_zombie_yell": "Cave Zombie Screams"
 }

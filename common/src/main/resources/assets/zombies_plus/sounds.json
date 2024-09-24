@@ -1,0 +1,12 @@
+{
+  "cave_zombie_yell": {
+    "sounds": [
+      {
+        "attenuation_distance": 25,
+        "name": "zombies_plus:cave_zombie_yell",
+        "stream": true
+      }
+    ],
+    "subtitle": "sounds.zombies_plus.cave_zombie_yell"
+  }
+}

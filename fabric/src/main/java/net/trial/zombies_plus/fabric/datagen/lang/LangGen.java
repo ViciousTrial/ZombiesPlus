@@ -28,6 +28,8 @@ public class LangGen extends FabricLanguageProvider {
 
 
         translationBuilder.add("category.zombies_plus_tab", "Zombies+");
+        translationBuilder.add("sound.zombies_plus.cave_zombie_yell", "Cave Zombie Screams");
+
     
         translationBuilder.add(ModEntities.BRUTE_ZOMBIE.get(), "Brute Zombie");
         translationBuilder.add(ModEntities.RUNNER_ZOMBIE.get(), "Runner Zombie");

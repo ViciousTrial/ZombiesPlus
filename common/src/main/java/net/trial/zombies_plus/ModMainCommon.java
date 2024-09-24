@@ -1,6 +1,7 @@
 package net.trial.zombies_plus;
 
 import net.trial.zombies_plus.entity.ModEntities;
+import net.trial.zombies_plus.sound.ModSounds;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -19,6 +20,7 @@ public final class ModMainCommon {
     public static ModConfig modConfigInstance = null;
 
     public static void init() {
+        ModSounds.SOUNDS.register();
         ModEntities.ENTITY_TYPES.register();
         ModItems.ITEMS.register();
         ModCreativeTab.TABS.register();

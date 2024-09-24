@@ -29,6 +29,7 @@ public class LangGen extends LanguageProvider {
 
 
         add("category.zombies_plus_tab", "Zombies+");
+        add("sound.zombies_plus.cave_zombie_yell", "Cave Zombie Screams");
 
         addItem(() -> ModItems.BRUTE_ZOMBIE_SPAWN_EGG.get(), "Brute Zombie Spawn Egg");
         addItem(() -> ModItems.RUNNER_ZOMBIE_SPAWN_EGG.get(), "Runner Zombie Spawn Egg");

@@ -44,6 +44,7 @@ public class DataGen {
 
         generator.addProvider(event.includeClient(), new LangGen(packOutput, ModMain.MOD_ID, "en_us"));
         generator.addProvider(event.includeServer(), new EntitySpawnGen(packOutput, ModMainCommon.MOD_ID));
+        //generator.addProvider(event.includeClient(), new SoundDefinitions(packOutput, ModMainCommon.MOD_ID, existingFileHelper));
 
         //generator.addProvider(event.includeServer(), new recipeProvider(packOutput));
 
