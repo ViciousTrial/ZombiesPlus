@@ -1,93 +1,65 @@
 package net.trial.zombies_plus.util;
 
-public interface ZombieSpawnProperties {
+public enum ZombieSpawnProperties {
 
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class baseSpawnPropertiesConfig {
-        public int spawnWeight = 15;
-        public int minGroupSize = 4;
-        public int maxGroupSize = 4;
+     runnerZombie(40, 4, 4),
+    bruteZombie(10, 4, 4),
+    crawlerZombie(15, 4, 4),
+    crossbowZombie(35, 4, 4),
+    bowZombie(35, 4, 4),
+    shriekerZombie(3, 4, 4),
+    axeZombie(15, 4, 4),
+    swordZombie(15, 4, 4),
+    weakZombie(10, 4, 4),
+    slowZombie(7, 4, 4),
+    vileZombie(15, 4, 4),
+    caveZombie(30, 4, 4);
+
+    // Spawn properties
+    private final int spawnWeight;
+    private final int minGroupSize;
+    private final int maxGroupSize;
+
+    /**
+     * Constructor for ZombieSpawnProperties enum.
+     *
+     * @param spawnWeight  The weight of the spawn probability.
+     * @param minGroupSize The minimum group size for spawning.
+     * @param maxGroupSize The maximum group size for spawning.
+     */
+    ZombieSpawnProperties(int spawnWeight, int minGroupSize, int maxGroupSize) {
+        this.spawnWeight = spawnWeight;
+        this.minGroupSize = minGroupSize;
+        this.maxGroupSize = maxGroupSize;
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Getter methods for the spawn properties
 
-    baseSpawnPropertiesConfig runnerZombieSpawnProperties = new runnerZombieSpawnPropertiesEnum();
-
-    class runnerZombieSpawnPropertiesEnum extends baseSpawnPropertiesConfig {
-        public runnerZombieSpawnPropertiesEnum() {
-            this.spawnWeight = 40;
-        }
+    /**
+     * Gets the spawn weight for the zombie type.
+     *
+     * @return The spawn weight.
+     */
+    public int getSpawnWeight() {
+        return spawnWeight;
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    baseSpawnPropertiesConfig bruteZombieSpawnProperties = new bruteZombiePropertiesEnum();
-
-    class bruteZombiePropertiesEnum extends baseSpawnPropertiesConfig {
-        public bruteZombiePropertiesEnum() {
-            this.spawnWeight = 10;
-        }
-    }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    baseSpawnPropertiesConfig crawlerZombieSpawnProperties = new baseSpawnPropertiesConfig();
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    baseSpawnPropertiesConfig crossbowZombieSpawnProperties = new crossbowZombiePropertiesEnum();
-
-    class crossbowZombiePropertiesEnum extends baseSpawnPropertiesConfig {
-        public crossbowZombiePropertiesEnum() {
-            this.spawnWeight = 35;
-        }
+    /**
+     * Gets the minimum group size for spawning.
+     *
+     * @return The minimum group size.
+     */
+    public int getMinGroupSize() {
+        return minGroupSize;
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    baseSpawnPropertiesConfig bowZombieSpawnProperties = new crossbowZombiePropertiesEnum();
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    baseSpawnPropertiesConfig shriekerZombieSpawnProperties = new shriekerZombiePropertiesEnum();
-
-    class shriekerZombiePropertiesEnum extends baseSpawnPropertiesConfig {
-        public shriekerZombiePropertiesEnum() {
-            this.spawnWeight = 3;
-        }
+    /**
+     * Gets the maximum group size for spawning.
+     *
+     * @return The maximum group size.
+     */
+    public int getMaxGroupSize() {
+        return maxGroupSize;
     }
-
-    baseSpawnPropertiesConfig axeZombieSpawnProperties = new baseSpawnPropertiesConfig();
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    baseSpawnPropertiesConfig swordZombieSpawnProperties = new baseSpawnPropertiesConfig();
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    baseSpawnPropertiesConfig weakZombieSpawnProperties = new baseSpawnPropertiesConfig();
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    class weakZombiePropertiesEnum extends baseSpawnPropertiesConfig {
-        public weakZombiePropertiesEnum() {
-            this.spawnWeight = 10;
-        }
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    baseSpawnPropertiesConfig slowZombieSpawnProperties = new baseSpawnPropertiesConfig();
-
-    class slowZombieSpawnPropertiesEnum extends baseSpawnPropertiesConfig {
-        public slowZombieSpawnPropertiesEnum() {
-            this.spawnWeight = 7;
-        }
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    baseSpawnPropertiesConfig vileZombieSpawnProperties = new baseSpawnPropertiesConfig();
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    baseSpawnPropertiesConfig caveZombieSpawnProperties = new baseSpawnPropertiesConfig();
-
-
 }

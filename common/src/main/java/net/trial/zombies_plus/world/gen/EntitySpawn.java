@@ -27,78 +27,76 @@ public class EntitySpawn {
             registerEntitySpawnWithConfig(
                     ModEntities.RUNNER_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.runnerZombieSpawnProperties);
+                    ZombieSpawnProperties.runnerZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.BRUTE_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.bruteZombieSpawnProperties);
+                    ZombieSpawnProperties.bruteZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.AXE_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.axeZombieSpawnProperties);
+                    ZombieSpawnProperties.axeZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.CRAWLER_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.crawlerZombieSpawnProperties);
+                    ZombieSpawnProperties.crawlerZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.CROSSBOW_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.crossbowZombieSpawnProperties);
+                    ZombieSpawnProperties.crossbowZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.BOW_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.bowZombieSpawnProperties);
+                    ZombieSpawnProperties.bowZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.SHRIEKER_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.shriekerZombieSpawnProperties);
+                    ZombieSpawnProperties.shriekerZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.SWORD_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.swordZombieSpawnProperties);
+                    ZombieSpawnProperties.swordZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.WEAK_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.weakZombieSpawnProperties);
+                    ZombieSpawnProperties.weakZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.SLOW_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.slowZombieSpawnProperties);
+                    ZombieSpawnProperties.slowZombie);
 
             registerEntitySpawnWithConfig(
                     ModEntities.VILE_ZOMBIE.get(),
                     AbstractZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.vileZombieSpawnProperties,
+                    ZombieSpawnProperties.vileZombie,
                     ConventionalBiomeTags.SWAMP);
 
              registerEntitySpawnWithConfig(
                     ModEntities.CAVE_ZOMBIE.get(),
                     CaveZombieEntity::checkEntitySpawnRules,
-                    ZombieSpawnProperties.caveZombieSpawnProperties,
-                    ConventionalBiomeTags.CAVES);
-
+                    ZombieSpawnProperties.caveZombie);
         }
     }
 
     private static <T extends Mob> void registerEntitySpawnWithConfig(EntityType<T> entityType,
-                                                                      SpawnPlacements.SpawnPredicate<T> spawnPredicate, ZombieSpawnProperties.baseSpawnPropertiesConfig spawnProperties) {
-        registerFabricSpawn(entityType, spawnPredicate, spawnProperties.spawnWeight, spawnProperties.minGroupSize,
-                spawnProperties.maxGroupSize);
+                                                                      SpawnPlacements.SpawnPredicate<T> spawnPredicate, ZombieSpawnProperties spawnProperties) {
+        registerFabricSpawn(entityType, spawnPredicate, spawnProperties.getSpawnWeight(), spawnProperties.getMinGroupSize(),
+                spawnProperties.getMaxGroupSize());
     }
 
     private static <T extends Mob> void registerEntitySpawnWithConfig(EntityType<T> entityType,
-                                                                      SpawnPlacements.SpawnPredicate<T> spawnPredicate, ZombieSpawnProperties.baseSpawnPropertiesConfig spawnProperties, TagKey<Biome> biomes) {
-        registerFabricSpawnWithBiomeTag(entityType, spawnPredicate, spawnProperties.spawnWeight, spawnProperties.minGroupSize,
-                spawnProperties.maxGroupSize, biomes);
+                                                                      SpawnPlacements.SpawnPredicate<T> spawnPredicate, ZombieSpawnProperties spawnProperties, TagKey<Biome> biomes) {
+        registerFabricSpawnWithBiomeTag(entityType, spawnPredicate, spawnProperties.getSpawnWeight(), spawnProperties.getMinGroupSize(),
+                spawnProperties.getMaxGroupSize(), biomes);
     }
 
     private static <T extends Mob> void registerFabricSpawn(EntityType<T> entityType,

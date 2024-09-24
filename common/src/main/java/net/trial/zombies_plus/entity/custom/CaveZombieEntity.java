@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -25,7 +26,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.trial.zombies_plus.ModMainCommon;
+import net.trial.zombies_plus.util.ModTags;
 import org.joml.Random;
 
 public class CaveZombieEntity extends AbstractZombieEntity {
@@ -88,9 +91,13 @@ public class CaveZombieEntity extends AbstractZombieEntity {
 
     public static boolean checkEntitySpawnRules(EntityType<? extends Monster> entityType, ServerLevelAccessor serverLevelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource) {
         boolean surroundingCheck = Monster.checkMonsterSpawnRules(entityType, serverLevelAccessor, mobSpawnType, blockPos, randomSource);
+        BlockState belowState = serverLevelAccessor.getBlockState(blockPos.below());
+
+        boolean blockCheck = belowState.is(ModTags.Blocks.CAVE_ZOMBIE_SPAWNABLE);
+
         boolean yLevelCheck = blockPos.getY() <= 70;
 
-        return surroundingCheck && yLevelCheck;
+        return surroundingCheck && yLevelCheck && blockCheck;
     }
 
     @Override

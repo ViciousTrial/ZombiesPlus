@@ -52,7 +52,7 @@ public class ModItems {
                         () -> new ArchitecturySpawnEggItem(ModEntities.WEAK_ZOMBIE, 0x416E6E, 0x43543D,
                                         new Item.Properties().arch$tab(ModCreativeTab.ZOMBIES_PLUS_TAB)));
          public static final RegistrySupplier<Item> SLOW_ZOMBIE_SPAWN_EGG = ITEMS.register("slow_zombie_spawn_egg",
-                        () -> new ArchitecturySpawnEggItem(ModEntities.SLOW_ZOMBIE, 0x416E6E, 0x5009705,
+                        () -> new ArchitecturySpawnEggItem(ModEntities.SLOW_ZOMBIE, 0x25274A, 0x5009705,
                                         new Item.Properties().arch$tab(ModCreativeTab.ZOMBIES_PLUS_TAB)));
          public static final RegistrySupplier<Item> VILE_ZOMBIE_SPAWN_EGG = ITEMS.register("vile_zombie_spawn_egg",
                         () -> new ArchitecturySpawnEggItem(ModEntities.VILE_ZOMBIE, 0x2AA87D, 0x234F47,

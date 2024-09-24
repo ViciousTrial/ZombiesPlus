@@ -2,6 +2,7 @@ package net.trial.zombies_plus.entity.ai;
 
 import net.trial.zombies_plus.ModMainCommon;
 import net.trial.zombies_plus.entity.ModEntities;
+import net.trial.zombies_plus.entity.custom.*;
 import org.joml.Random;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -12,13 +13,6 @@ import net.minecraft.world.entity.ai.goal.ZombieAttackGoal;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.trial.zombies_plus.entity.custom.AxeZombieEntity;
-import net.trial.zombies_plus.entity.custom.BowZombieEntity;
-import net.trial.zombies_plus.entity.custom.BruteZombieEntity;
-import net.trial.zombies_plus.entity.custom.CrawlerZombieEntity;
-import net.trial.zombies_plus.entity.custom.CrossbowZombieEntity;
-import net.trial.zombies_plus.entity.custom.RunnerZombieEntity;
-import net.trial.zombies_plus.entity.custom.ShriekerZombieEntity;
 
 public class ShriekerZombieAttackGoal extends ZombieAttackGoal {
 
@@ -94,6 +88,15 @@ public class ShriekerZombieAttackGoal extends ZombieAttackGoal {
                 break;
             case 6:
                 chosen = new RunnerZombieEntity(ModEntities.RUNNER_ZOMBIE.get(), world);
+                break;
+            case 7:
+                chosen = new SwordZombieEntity(ModEntities.SWORD_ZOMBIE.get(), world);
+                break;
+            case 8:
+                chosen = new SlowZombieEntity(ModEntities.SLOW_ZOMBIE.get(), world);
+                break;
+            case 9:
+                chosen = new WeakZombieEntity(ModEntities.WEAK_ZOMBIE.get(), world);
                 break;
             default:
                 chosen = new RunnerZombieEntity(ModEntities.RUNNER_ZOMBIE.get(), world);

@@ -26,80 +26,80 @@ public class EntitySpawnGen extends EntitySpawnDataProvider {
                     cache,
                     ModEntities.AXE_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.axeZombieSpawnProperties));
+                    ZombieSpawnProperties.axeZombie));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.RUNNER_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.runnerZombieSpawnProperties));
+                    ZombieSpawnProperties.runnerZombie));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.BRUTE_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.bruteZombieSpawnProperties));
+                    ZombieSpawnProperties.bruteZombie));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.CRAWLER_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.crawlerZombieSpawnProperties));
+                    ZombieSpawnProperties.crawlerZombie));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.BOW_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.bowZombieSpawnProperties));
+                    ZombieSpawnProperties.bowZombie));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.CROSSBOW_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.crossbowZombieSpawnProperties));
+                    ZombieSpawnProperties.crossbowZombie));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.SHRIEKER_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.shriekerZombieSpawnProperties));
+                    ZombieSpawnProperties.shriekerZombie));
 
           entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.SWORD_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.swordZombieSpawnProperties));
+                    ZombieSpawnProperties.swordZombie));
 
            entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.WEAK_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.weakZombieSpawnProperties));
+                    ZombieSpawnProperties.weakZombie));
 
            entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.SLOW_ZOMBIE.getId(),
                     BiomeTags.IS_OVERWORLD,
-                    ZombieSpawnProperties.slowZombieSpawnProperties));
+                    ZombieSpawnProperties.slowZombie));
 
            entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.VILE_ZOMBIE.getId(),
                     Tags.Biomes.IS_SWAMP,
-                    ZombieSpawnProperties.slowZombieSpawnProperties));
+                    ZombieSpawnProperties.vileZombie));
 
            entry.add(createConfigBasedSpawnData(
                     cache,
                     ModEntities.CAVE_ZOMBIE.getId(),
-                    Tags.Biomes.IS_CAVE,
-                    ZombieSpawnProperties.caveZombieSpawnProperties));
+                    BiomeTags.IS_OVERWORLD,
+                    ZombieSpawnProperties.caveZombie));
 
      }
 
      private CompletableFuture<?> createConfigBasedSpawnData(CachedOutput cache, ResourceLocation entityId,
-               Object biomes, ZombieSpawnProperties.baseSpawnPropertiesConfig spawnProperties) {
-          return createBasicSpawnData(cache, entityId, biomes, spawnProperties.spawnWeight,
-                    spawnProperties.minGroupSize, spawnProperties.maxGroupSize);
+               Object biomes, ZombieSpawnProperties spawnProperties) {
+          return createBasicSpawnData(cache, entityId, biomes, spawnProperties.getSpawnWeight(),
+                    spawnProperties.getMinGroupSize(), spawnProperties.getMaxGroupSize());
      }
 
 }
