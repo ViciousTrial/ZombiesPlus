@@ -3,7 +3,7 @@ package net.trial.zombies_plus.util;
 public enum ZombieSpawnProperties {
 
 
-     runnerZombie(40, 4, 4),
+    runnerZombie(40, 4, 4),
     bruteZombie(10, 4, 4),
     crawlerZombie(15, 4, 4),
     crossbowZombie(35, 4, 4),
@@ -14,7 +14,8 @@ public enum ZombieSpawnProperties {
     weakZombie(10, 4, 4),
     slowZombie(7, 4, 4),
     vileZombie(15, 4, 4),
-    caveZombie(30, 4, 4);
+    caveZombie(30, 4, 4),
+    leaperZombie(10,4,4);
 
     // Spawn properties
     private final int spawnWeight;

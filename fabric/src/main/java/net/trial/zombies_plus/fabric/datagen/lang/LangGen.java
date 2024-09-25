@@ -25,6 +25,7 @@ public class LangGen extends FabricLanguageProvider {
         translationBuilder.add(ModItems.SLOW_ZOMBIE_SPAWN_EGG.get(), "Slow Zombie Spawn Egg");
         translationBuilder.add(ModItems.VILE_ZOMBIE_SPAWN_EGG.get(), "Vile Zombie Spawn Egg");
         translationBuilder.add(ModItems.CAVE_ZOMBIE_SPAWN_EGG.get(), "Cave Zombie Spawn Egg");
+        translationBuilder.add(ModItems.LEAPER_ZOMBIE_SPAWN_EGG.get(), "Leaper Zombie Spawn Egg");
 
 
         translationBuilder.add("category.zombies_plus_tab", "Zombies+");
@@ -43,6 +44,7 @@ public class LangGen extends FabricLanguageProvider {
         translationBuilder.add(ModEntities.SLOW_ZOMBIE.get(), "Slow Zombie");
         translationBuilder.add(ModEntities.VILE_ZOMBIE.get(), "Vile Zombie");
         translationBuilder.add(ModEntities.CAVE_ZOMBIE.get(), "Cave Zombie");
+        translationBuilder.add(ModEntities.LEAPER_ZOMBIE.get(), "Leaper Zombie");
 
     }
 

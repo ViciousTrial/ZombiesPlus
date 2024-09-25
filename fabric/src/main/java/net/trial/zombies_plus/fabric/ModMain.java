@@ -41,6 +41,7 @@ public class ModMain implements ModInitializer {
         FabricDefaultAttributeRegistry.register(ModEntities.SLOW_ZOMBIE.get(), WeakZombieEntity.createAttributes().build());
         FabricDefaultAttributeRegistry.register(ModEntities.VILE_ZOMBIE.get(), VileZombieEntity.createAttributes().build());
         FabricDefaultAttributeRegistry.register(ModEntities.CAVE_ZOMBIE.get(), CaveZombieEntity.createAttributes().build());
+        FabricDefaultAttributeRegistry.register(ModEntities.LEAPER_ZOMBIE.get(), LeaperZombieEntity.createAttributes().build());
     }
 
 }

@@ -34,5 +34,6 @@ public class ModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SLOW_ZOMBIE, ModelRenderer.slowZombieModelRenderer::new);
         EntityRendererRegistry.register(ModEntities.VILE_ZOMBIE, ModelRenderer.vileZombieModelRenderer::new);
         EntityRendererRegistry.register(ModEntities.CAVE_ZOMBIE, ModelRenderer.caveZombieModelRenderer::new);
+        EntityRendererRegistry.register(ModEntities.LEAPER_ZOMBIE, ModelRenderer.leaperZombieModelRenderer::new);
     }
 }

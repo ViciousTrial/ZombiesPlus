@@ -35,6 +35,7 @@ public class ModEventBus {
         event.put(ModEntities.SLOW_ZOMBIE.get(), SlowZombieEntity.createAttributes().build());
         event.put(ModEntities.VILE_ZOMBIE.get(), VileZombieEntity.createAttributes().build());
         event.put(ModEntities.CAVE_ZOMBIE.get(), CaveZombieEntity.createAttributes().build());
+        event.put(ModEntities.LEAPER_ZOMBIE.get(), LeaperZombieEntity.createAttributes().build());
     }
 
 

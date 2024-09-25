@@ -6,25 +6,13 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 import net.trial.zombies_plus.ModMainCommon;
 
-
-// class baseSpawnPropertiesConfig {
-//      @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
-//      public int spawnWeight = 15;
-
-//      @ConfigEntry.BoundedDiscrete(min = 1, max = 10)
-//      public int minGroupSize = 4;
-
-//      @ConfigEntry.BoundedDiscrete(min = 1, max = 10)
-//      public int maxGroupSize = 4;
-// }
-
 @Config(name = ModMainCommon.MOD_ID)
 public class ModConfig implements ConfigData {
 
      @Comment("Use another resource pack for zombie textures? NOTE: Does not work for Brutes.")
      public boolean zombieTextureOverride = false;
 
-     @Comment("Add details for Tissou Zombie Resource Pack? NOTE: Adds realistic zombie textures for Brutes only. Install the mod 'Entity Texture Features' for emissive eye textures. For other zombies, install Tissou's pack and set 'Zombie Texture Override' to true.")
+     @Comment("Add details for Tissou Zombie Resource Pack? NOTE: Adds realistic zombie textures for Brutes and Cave Zombies only. Install the mod 'Entity Texture Features' for emissive eye textures. For other zombies, install Tissou's pack and set 'Zombie Texture Override' to true.")
      public boolean tissouZombiePackDetails = false;
 
      @Comment("Use better animations for zombies? Animations similar to Fresh Animations. NOTE: Applies to Brutes, Shriekers, and Crawlers only. For every other zombie, install 'Fresh Animations' resource-pack. If installed, Fresh Animations will override zombie animations.")

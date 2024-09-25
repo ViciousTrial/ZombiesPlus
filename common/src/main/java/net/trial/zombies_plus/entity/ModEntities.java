@@ -60,4 +60,8 @@ public class ModEntities {
             .register("cave_zombie", () -> EntityType.Builder.of(CaveZombieEntity::new, MobCategory.MONSTER)
                     .sized(1f, 1f).build("cave_zombie"));
 
+    public static final RegistrySupplier<EntityType<LeaperZombieEntity>> LEAPER_ZOMBIE = ENTITY_TYPES
+            .register("leaper_zombie", () -> EntityType.Builder.of(LeaperZombieEntity::new, MobCategory.MONSTER)
+                    .sized(1f, 1f).build("leaper_zombie"));
+
 }

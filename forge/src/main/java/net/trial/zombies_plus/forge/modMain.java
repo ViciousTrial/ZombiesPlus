@@ -95,5 +95,6 @@ public class ModMain {
         EntityRenderers.register(ModEntities.SLOW_ZOMBIE.get(), ModelRenderer.slowZombieModelRenderer::new);
         EntityRenderers.register(ModEntities.VILE_ZOMBIE.get(), ModelRenderer.vileZombieModelRenderer::new);
         EntityRenderers.register(ModEntities.CAVE_ZOMBIE.get(), ModelRenderer.caveZombieModelRenderer::new);
+        EntityRenderers.register(ModEntities.LEAPER_ZOMBIE.get(), ModelRenderer.leaperZombieModelRenderer::new);
     }
 }

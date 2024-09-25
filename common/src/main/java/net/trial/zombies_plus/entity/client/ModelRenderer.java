@@ -256,4 +256,20 @@ public class ModelRenderer {
 
     }
 
+    public static class leaperZombieModelRenderer extends AbstractZombieRenderer<LeaperZombieEntity, RunnerZombieModel<LeaperZombieEntity>> {
+        public leaperZombieModelRenderer(EntityRendererProvider.Context p_174456_) {
+            this(p_174456_, net.minecraft.client.model.geom.ModelLayers.ZOMBIE, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_INNER_ARMOR, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_OUTER_ARMOR);
+        }
+
+        @Override
+        public ResourceLocation getTextureLocation(LeaperZombieEntity pEntity) {
+            return pEntity.getTexture();
+        }
+
+        public leaperZombieModelRenderer(EntityRendererProvider.Context pContext, ModelLayerLocation pZombieLayer, ModelLayerLocation pInnerArmor, ModelLayerLocation pOuterArmor) {
+            super(pContext, new RunnerZombieModel<>(pContext.bakeLayer(pZombieLayer)), new RunnerZombieModel<>(pContext.bakeLayer(pInnerArmor)), new RunnerZombieModel<>(pContext.bakeLayer(pOuterArmor)));
+        }
+
+    }
+
 }

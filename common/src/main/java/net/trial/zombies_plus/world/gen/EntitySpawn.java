@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.trial.zombies_plus.entity.ModEntities;
 import net.trial.zombies_plus.entity.custom.AbstractZombieEntity;
 import net.trial.zombies_plus.entity.custom.CaveZombieEntity;
+import net.trial.zombies_plus.entity.custom.LeaperZombieEntity;
 import net.trial.zombies_plus.util.ZombieSpawnProperties;
 
 import java.util.ArrayList;
@@ -84,6 +85,11 @@ public class EntitySpawn {
                     ModEntities.CAVE_ZOMBIE.get(),
                     CaveZombieEntity::checkEntitySpawnRules,
                     ZombieSpawnProperties.caveZombie);
+
+              registerEntitySpawnWithConfig(
+                    ModEntities.LEAPER_ZOMBIE.get(),
+                    LeaperZombieEntity::checkEntitySpawnRules,
+                    ZombieSpawnProperties.leaperZombie);
         }
     }
 

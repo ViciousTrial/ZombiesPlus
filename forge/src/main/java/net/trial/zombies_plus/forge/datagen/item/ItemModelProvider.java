@@ -32,6 +32,7 @@ public class ItemModelProvider extends net.minecraftforge.client.model.generator
         spawnEgg(ModItems.SLOW_ZOMBIE_SPAWN_EGG);
         spawnEgg(ModItems.VILE_ZOMBIE_SPAWN_EGG);
         spawnEgg(ModItems.CAVE_ZOMBIE_SPAWN_EGG);
+        spawnEgg(ModItems.LEAPER_ZOMBIE_SPAWN_EGG);
 
        // simpleBlock(MODBLOCKS.BLOCK_OF_CHEESE);
 

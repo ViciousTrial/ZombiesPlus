@@ -26,6 +26,7 @@ public class LangGen extends LanguageProvider {
         addEntityType(() -> ModEntities.SLOW_ZOMBIE.get(), "Slow Zombie");
         addEntityType(() -> ModEntities.VILE_ZOMBIE.get(), "Vile Zombie");
         addEntityType(() -> ModEntities.CAVE_ZOMBIE.get(), "Cave Zombie");
+        addEntityType(() -> ModEntities.LEAPER_ZOMBIE.get(), "Leaper Zombie");
 
 
         add("category.zombies_plus_tab", "Zombies+");
@@ -43,6 +44,7 @@ public class LangGen extends LanguageProvider {
         addItem(() -> ModItems.SLOW_ZOMBIE_SPAWN_EGG.get(), "Slow Zombie Spawn Egg");
         addItem(() -> ModItems.VILE_ZOMBIE_SPAWN_EGG.get(), "Vile Zombie Spawn Egg");
         addItem(() -> ModItems.CAVE_ZOMBIE_SPAWN_EGG.get(), "Cave Zombie Spawn Egg");
+        addItem(() -> ModItems.LEAPER_ZOMBIE_SPAWN_EGG.get(), "Leaper Zombie Spawn Egg");
 
     }
 

@@ -39,6 +39,11 @@ public class BruteZombieEntity extends AbstractZombieEntity {
 
 
     @Override
+    public ResourceLocation getTexture() {
+        return getCustomTexture();
+    }
+
+    @Override
     public ResourceLocation getCustomTexture(){
         return this.variantTexture;
     }

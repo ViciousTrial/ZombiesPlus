@@ -94,6 +94,12 @@ public class EntitySpawnGen extends EntitySpawnDataProvider {
                     BiomeTags.IS_OVERWORLD,
                     ZombieSpawnProperties.caveZombie));
 
+           entry.add(createConfigBasedSpawnData(
+                    cache,
+                    ModEntities.LEAPER_ZOMBIE.getId(),
+                    BiomeTags.IS_OVERWORLD,
+                    ZombieSpawnProperties.leaperZombie));
+
      }
 
      private CompletableFuture<?> createConfigBasedSpawnData(CachedOutput cache, ResourceLocation entityId,

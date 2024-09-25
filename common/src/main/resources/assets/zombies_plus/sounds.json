@@ -3,6 +3,7 @@
     "sounds": [
       {
         "attenuation_distance": 25,
+        "volume": 3,
         "name": "zombies_plus:cave_zombie_yell",
         "stream": true
       }

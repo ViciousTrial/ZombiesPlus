@@ -38,7 +38,6 @@ import org.joml.Random;
 public class CaveZombieEntity extends AbstractZombieEntity {
 
 
-
     private LivingEntity target;
     private int lightCheckCounter = 0;
     private final float maxSpeed = 0.23F;
@@ -52,7 +51,7 @@ public class CaveZombieEntity extends AbstractZombieEntity {
     public CaveZombieEntity(EntityType<? extends Zombie> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
 
-        if (ModMainCommon.modConfigInstance.tissouZombiePackDetails) {
+        if ((ModMainCommon.modConfigInstance.tissouZombiePackDetails) || (ModMainCommon.modConfigInstance.tissouZombiePackDetails && ModMainCommon.modConfigInstance.zombieTextureOverride)) {
             int variantIndex = new Random().nextInt(VARIANT_TEXTURES.length);
             this.variantTexture = VARIANT_TEXTURES[variantIndex];
         } else {
@@ -66,6 +65,10 @@ public class CaveZombieEntity extends AbstractZombieEntity {
             new ResourceLocation(ModMainCommon.MOD_ID, "textures/entity/cave_zombie/variants/variant_2.png"),
     };
 
+    @Override
+    public ResourceLocation getTexture() {
+        return getCustomTexture();
+    }
 
     @Override
     protected ResourceLocation getCustomTexture() {
@@ -133,10 +136,15 @@ public class CaveZombieEntity extends AbstractZombieEntity {
     @Override
     public void setTarget(@Nullable LivingEntity livingEntity) {
         super.setTarget(livingEntity);
-        if (this.target != livingEntity){
-             this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
-                    ModSounds.CAVE_ZOMBIE_YELL.get(), SoundSource.HOSTILE, 2.5f, 1f, 0);
-             this.target = livingEntity;
+        if (this.target != livingEntity) {
+            if (ModMainCommon.modConfigInstance.tissouZombiePackDetails) {
+                this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
+                        SoundEvents.ZOMBIE_INFECT, SoundSource.HOSTILE, 2.5f, 1f, 0);
+            } else {
+                this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
+                        ModSounds.CAVE_ZOMBIE_YELL.get(), SoundSource.HOSTILE, 2.5f, 1f, 0);
+            }
+            this.target = livingEntity;
         }
     }
 

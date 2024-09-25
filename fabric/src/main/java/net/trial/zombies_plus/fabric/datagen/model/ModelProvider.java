@@ -40,6 +40,7 @@ public class ModelProvider extends FabricModelProvider {
         spawnEgg(ModItems.SLOW_ZOMBIE_SPAWN_EGG.get());
         spawnEgg(ModItems.VILE_ZOMBIE_SPAWN_EGG.get());
         spawnEgg(ModItems.CAVE_ZOMBIE_SPAWN_EGG.get());
+        spawnEgg(ModItems.LEAPER_ZOMBIE_SPAWN_EGG.get());
 
     }
 
