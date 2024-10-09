@@ -14,15 +14,11 @@ import net.trial.zombies_plus.entity.ModEntities;
 import net.trial.zombies_plus.entity.custom.*;
 import net.trial.zombies_plus.world.gen.EntitySpawn;
 
-@Mod.EventBusSubscriber(modid = ModMainCommon.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = ModMainCommon.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBus {
 
     @SubscribeEvent
-    public static void registerAttributes(EntityAttributeCreationEvent event) {
-        createEntityAttributes(event);
-    }
-
-    private static void createEntityAttributes(EntityAttributeCreationEvent event) {
+    public static void createEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.RUNNER_ZOMBIE.get(), RunnerZombieEntity.createAttributes().build());
         event.put(ModEntities.BRUTE_ZOMBIE.get(), BruteZombieEntity.createAttributes().build());
         event.put(ModEntities.CRAWLER_ZOMBIE.get(), CrawlerZombieEntity.createAttributes().build());

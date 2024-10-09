@@ -13,7 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.trial.zombies_plus.ModMainCommon;
 import net.trial.zombies_plus.entity.ModEntities;
-import net.trial.zombies_plus.entity.client.ModelRenderer;
+import net.trial.zombies_plus.entity.client.ModModelRenderer;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ModMainCommon.MOD_ID)
@@ -27,11 +27,11 @@ public class ModMain {
     public ModMain() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         EventBuses.registerModEventBus(ModMainCommon.MOD_ID, modEventBus);
+        ModMainCommon.init();
+
 
         //modEntities.ENTITY_TYPES.register();
         //modItems.ITEMS.register();
-
-        ModMainCommon.init();
 
 
         //modCreativeModeTabs.register(modEventBus);
@@ -83,18 +83,18 @@ public class ModMain {
     }
 
     private static void renderEntities() {
-        EntityRenderers.register(ModEntities.RUNNER_ZOMBIE.get(), ModelRenderer.runnerZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.BRUTE_ZOMBIE.get(), ModelRenderer.bruteZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.CRAWLER_ZOMBIE.get(), ModelRenderer.crawlerZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.CROSSBOW_ZOMBIE.get(), ModelRenderer.crossbowZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.BOW_ZOMBIE.get(), ModelRenderer.bowZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.SHRIEKER_ZOMBIE.get(), ModelRenderer.shriekerZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.AXE_ZOMBIE.get(), ModelRenderer.axeZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.SWORD_ZOMBIE.get(), ModelRenderer.swordZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.WEAK_ZOMBIE.get(), ModelRenderer.weakZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.SLOW_ZOMBIE.get(), ModelRenderer.slowZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.VILE_ZOMBIE.get(), ModelRenderer.vileZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.CAVE_ZOMBIE.get(), ModelRenderer.caveZombieModelRenderer::new);
-        EntityRenderers.register(ModEntities.LEAPER_ZOMBIE.get(), ModelRenderer.leaperZombieModelRenderer::new);
+        EntityRenderers.register(ModEntities.RUNNER_ZOMBIE.get(), ModModelRenderer.RunnerZombieRenderer::new);
+        EntityRenderers.register(ModEntities.BRUTE_ZOMBIE.get(), ModModelRenderer.BruteZombieRenderer::new);
+        EntityRenderers.register(ModEntities.CRAWLER_ZOMBIE.get(), ModModelRenderer.CrawlerZombieRenderer::new);
+        EntityRenderers.register(ModEntities.CROSSBOW_ZOMBIE.get(), ModModelRenderer.CrossbowZombieRenderer::new);
+        EntityRenderers.register(ModEntities.BOW_ZOMBIE.get(), ModModelRenderer.BowZombieRenderer::new);
+        EntityRenderers.register(ModEntities.SHRIEKER_ZOMBIE.get(), ModModelRenderer.ShriekerZombieRenderer::new);
+        EntityRenderers.register(ModEntities.AXE_ZOMBIE.get(), ModModelRenderer.AxeZombieRenderer::new);
+        EntityRenderers.register(ModEntities.SWORD_ZOMBIE.get(), ModModelRenderer.SwordZombieRenderer::new);
+        EntityRenderers.register(ModEntities.WEAK_ZOMBIE.get(), ModModelRenderer.WeakZombieRenderer::new);
+        EntityRenderers.register(ModEntities.SLOW_ZOMBIE.get(), ModModelRenderer.SlowZombieRenderer::new);
+        EntityRenderers.register(ModEntities.VILE_ZOMBIE.get(), ModModelRenderer.VileZombieRenderer::new);
+        EntityRenderers.register(ModEntities.CAVE_ZOMBIE.get(), ModModelRenderer.CaveZombieRenderer::new);
+        EntityRenderers.register(ModEntities.LEAPER_ZOMBIE.get(), ModModelRenderer.LeaperZombieRenderer::new);
     }
 }

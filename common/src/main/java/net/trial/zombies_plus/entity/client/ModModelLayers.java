@@ -4,7 +4,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.resources.ResourceLocation;
 import net.trial.zombies_plus.ModMainCommon;
 
-public class ModelLayers {
+public class ModModelLayers {
     public static final ModelLayerLocation RUNNER_ZOMBIE_LAYER = new ModelLayerLocation(
             new ResourceLocation(ModMainCommon.MOD_ID, "runner_zombie_layer"), "main");
 

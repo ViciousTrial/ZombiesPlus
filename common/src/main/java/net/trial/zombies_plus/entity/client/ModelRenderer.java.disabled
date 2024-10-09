@@ -1,40 +1,32 @@
 package net.trial.zombies_plus.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-
 import net.minecraft.client.model.DrownedModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.AbstractZombieRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.trial.zombies_plus.entity.client.models.BruteZombieModel;
-import net.trial.zombies_plus.entity.client.models.CrawlerZombieModel;
-import net.trial.zombies_plus.entity.client.models.CrossbowZombieModel;
-import net.trial.zombies_plus.entity.client.models.RunnerZombieModel;
-import net.trial.zombies_plus.entity.client.models.ShriekerZombieModel;
+import net.trial.zombies_plus.entity.client.models.*;
 import net.trial.zombies_plus.entity.custom.*;
 
 public class ModelRenderer {
- 
-  /*   public static class runnerZombieModelRenderer extends MobRenderer<runnerZombieEntity, runnerZombieModel<runnerZombieEntity>> {
-        public runnerZombieModelRenderer(EntityRendererProvider.Context pContext) {
-            super(pContext, new runnerZombieModel<>(pContext.bakeLayer(modelLayers.RUNNER_ZOMBIE_LAYER)), 1f);
+
+    public static class StandardZombieRenderer<T extends AbstractZombieEntity> extends AbstractZombieRenderer<T, RunnerZombieModel<T>> {
+
+        public StandardZombieRenderer(EntityRendererProvider.Context context) {
+            super(context,
+                    new RunnerZombieModel<>(context.bakeLayer(ModelLayers.ZOMBIE)),
+                    new RunnerZombieModel<>(context.bakeLayer(ModelLayers.ZOMBIE_INNER_ARMOR)),
+                    new RunnerZombieModel<>(context.bakeLayer(ModelLayers.ZOMBIE_OUTER_ARMOR)));
         }
 
         @Override
-        public ResourceLocation getTextureLocation(runnerZombieEntity pEntity) {
-            return pEntity.getTexture();
+        public ResourceLocation getTextureLocation(T entity) {
+            return entity.getTexture();
         }
-
-        @Override
-        public void render(runnerZombieEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-
-
-            super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-        }
-    }    */
+    }
 
     public static class bruteZombieModelRenderer extends MobRenderer<BruteZombieEntity, BruteZombieModel<BruteZombieEntity>> {
         public bruteZombieModelRenderer(EntityRendererProvider.Context pContext) {
@@ -208,7 +200,7 @@ public class ModelRenderer {
 
     }
 
-     public static class slowZombieModelRenderer extends AbstractZombieRenderer<SlowZombieEntity, RunnerZombieModel<SlowZombieEntity>> {
+    public static class slowZombieModelRenderer extends AbstractZombieRenderer<SlowZombieEntity, RunnerZombieModel<SlowZombieEntity>> {
         public slowZombieModelRenderer(EntityRendererProvider.Context p_174456_) {
             this(p_174456_, net.minecraft.client.model.geom.ModelLayers.ZOMBIE, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_INNER_ARMOR, net.minecraft.client.model.geom.ModelLayers.ZOMBIE_OUTER_ARMOR);
         }
