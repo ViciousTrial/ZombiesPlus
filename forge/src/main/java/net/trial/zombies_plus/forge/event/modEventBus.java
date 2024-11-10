@@ -17,6 +17,7 @@ import net.trial.zombies_plus.world.gen.EntitySpawn;
 @Mod.EventBusSubscriber(modid = ModMainCommon.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBus {
 
+
     @SubscribeEvent
     public static void createEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(ModEntities.RUNNER_ZOMBIE.get(), RunnerZombieEntity.createAttributes().build());

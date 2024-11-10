@@ -14,6 +14,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.trial.zombies_plus.ModMainCommon;
 import net.trial.zombies_plus.entity.ModEntities;
 import net.trial.zombies_plus.entity.client.ModModelRenderer;
+import net.trial.zombies_plus.forge.worldgen.BiomeModifiers;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ModMainCommon.MOD_ID)
@@ -39,6 +40,7 @@ public class ModMain {
         //modItems.register(modEventBus);
 
         // Register the commonSetup method for modloading
+        BiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
 
         // Register ourselves for server and other game events we are interested in

@@ -29,6 +29,7 @@ public final class ModMainCommon {
 
         // modConfig.loadConfig();
 
+
         // Config epicness
         AutoConfig.register(ModConfig.class, JanksonConfigSerializer::new);
         modConfigInstance = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
